@@ -1,5 +1,5 @@
 import React from 'react'
-import CTAButton from "../HomePage/CTAButton"
+import CTAButton from "./Button"
 import {FaArrowRight} from "react-icons/fa"
 import { TypeAnimation } from 'react-type-animation'
 
