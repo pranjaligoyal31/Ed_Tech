@@ -38,3 +38,5 @@ const InstructorSection = () => {
         </div>
     )
 }
+
+export default InstructorSection

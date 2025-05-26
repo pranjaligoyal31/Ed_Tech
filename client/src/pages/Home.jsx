@@ -8,6 +8,7 @@ import CodeBlocks from '../components/core/HomePage/CodeBlocks';
 import TimelineSection from '../components/core/HomePage/TimelineSection'
 import LearningLanguageSection from '../components/core/HomePage/LearningLanguageSection'
 import InstructorSection from '../components/core/HomePage/InstructorSection'
+import ExploreMore from '../components/core/HomePage/ExploreMore'
 
 const Home = () => {
   return (
@@ -82,6 +83,7 @@ const Home = () => {
              
         {/* Code Section 2 */}
         <div>
+
             <CodeBlocks 
                 position={"lg:flex-row-reverse"}
                 heading={
@@ -113,6 +115,8 @@ const Home = () => {
                 backgroundGradient={"grad2"}
             />
         </div>
+
+        <ExploreMore />
 
 
         </div>
@@ -175,9 +179,10 @@ const Home = () => {
         <InstructorSection />
 
         <h2 className='text-center text-4xl font-semibold mt-10'>review from other learners</h2>
-        {/* Review slider  */}
+        {/* Review slider here */}
        </div>
       {/* Footer */}
+      <Footer />
     </div>
   )
 }
