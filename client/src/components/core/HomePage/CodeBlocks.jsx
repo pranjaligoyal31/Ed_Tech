@@ -12,7 +12,7 @@ const CodeBlocks = ({
     {/*Section 1*/}
     <div className=' flex flex-col gap-8 lg:w-[50%] p-4'>
         {heading}
-        <div className='text-black font-bold text-sm p-4 md:text-lg'>
+        <div className='text-white font-bold text-sm p-4 md:text-lg'>
             {subheading}
         </div>
 
