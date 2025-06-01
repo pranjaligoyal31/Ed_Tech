@@ -5,10 +5,11 @@ import HighlightText from '../components/core/HomePage/HighlightText';
 import CTAButton from '../components/core/HomePage/Button';
 import banner from '../assets/banner.mp4'
 import CodeBlocks from '../components/core/HomePage/CodeBlocks';
-import TimelineSection from '../components/core/HomePage/TimelineSection'
+import TimelineSection from '../components/TimelineSection'
 import LearningLanguageSection from '../components/core/HomePage/LearningLanguageSection'
 import InstructorSection from '../components/core/HomePage/InstructorSection'
 import ExploreMore from '../components/core/HomePage/ExploreMore'
+import Footer from '../components/common/Footer';
 
 const Home = () => {
   return (
@@ -36,14 +37,14 @@ const Home = () => {
                 <CTAButton active={false} linkto={"/login"} >Book a Demo</CTAButton>
             </div>
 
-            <div className='mx-3 my-12 shadow-blue-200 w-[70%] relative'>
+            <div className='mx-3 my-12 shadow-blue w-[70%] relative'>
               <div className='grad2 -top-10 w-[800px]'></div>
-            <video className='video'
+            <video className=''
             muted
             loop
             autoPlay
             >
-            <source  src={banner} type="video/mp4" />
+            <source src={banner} type="video/mp4" />
             </video>
             </div>
 
@@ -77,7 +78,7 @@ const Home = () => {
 
                 codeblock={`<<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a>\n</nav>`}
                 codeColor={"white"}
-                backgroudGradient={"grad"}
+                backgroundGradient={"codeblock1 absolute"}
             />
         </div>
              
@@ -111,8 +112,8 @@ const Home = () => {
                 }
 
                 codeblock={`<<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><a href="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a>\n</nav>`}
-                codeColor={"text-yellow-25"}
-                backgroundGradient={"grad2"}
+                codeColor={"text-yellow-200"}
+                backgroundGradient={"codeblock2 absolute"}
             />
         </div>
 
