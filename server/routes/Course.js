@@ -1,9 +1,13 @@
 const express=require('express')
 const router=express.Router()
 const {
-    createCourse,
-    showAllCourses,
-    getCourseDetails,
+  createCourse,
+  editCourse,
+  getInstructorCourses,
+  getFullCourseDetails,
+  deleteCourse,
+  getAllCourses,
+  getCourseDetails,
 }=require('../controllers/Course')
 
 //categories controller import
@@ -60,9 +64,18 @@ router.post('/deleteSubSection',auth,isInstructor,deleteSubSection)
 //add a subSection to a section
 router.post('/addSubSection',auth,isInstructor,createSubSection)
 //get all registered courses
-router.get('/getAllCourses',showAllCourses)
+// router.get('/getAllCourses',showAllCourses)
 //get details for specific courses
-router.get('/getCourseDetails',getCourseDetails)
+// router.get('/getCourseDetails',getCourseDetails)
+router.post("/editCourse",auth,isInstructor,editCourse);
+//Delete Course
+router.post("/deleteCourse",auth,isInstructor,deleteCourse);
+//Instructor Courses
+router.get("/getInstructorCourses",auth,isInstructor,getInstructorCourses);
+//Get All courses Details
+router.get("/getFullCourseDetails",auth,getFullCourseDetails);
+router.get("/getAllCourses", getAllCourses)
+router.post("/getCourseDetails", getCourseDetails)
 
 router.post("/createCategory", auth, isAdmin, createCategory)
 router.get("/showAllCategories", showAllCategories)

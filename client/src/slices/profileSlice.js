@@ -17,7 +17,7 @@ const profileSlice =createSlice({
         },
     }
 })
-export const {setUser} = profileSlice.actions;
+export const {setUser,setLoading} = profileSlice.actions;
 export default profileSlice.reducer;
 
 //in this we created a reducer 

@@ -76,10 +76,12 @@ exports.getCategoryPageDetails = async (req, res) => {
         const differentCategories = await Category.find({
             _id: { $ne: categoryId },
         })
-        .populate("courses")
+        .populate("course")
         .exec();
 
         //get top selling courses
+        
+
 
 
 

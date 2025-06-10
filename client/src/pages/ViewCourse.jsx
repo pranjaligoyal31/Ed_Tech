@@ -25,7 +25,7 @@ export default function ViewCourse() {
 
   // get Full Details Of Course
   useEffect(() => {
-    ; (async () => {
+     (async () => {
       const courseData = await getFullDetailsOfCourse(courseId, token)
       // console.log("Course Data here... ", courseData.courseDetails)
       dispatch(setCourseSectionData(courseData.courseDetails.courseContent))

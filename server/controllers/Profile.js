@@ -208,3 +208,25 @@ exports.updateDisplayPicture = async (req, res) => {
     }
 }
 
+exports.instructorDashboard=async(req,res)=>{
+    try {
+        const courseDetails=await Course.find({instructor:req.user.id});
+        const courseData=courseDetails.map((course)=>{
+            const totalStudentsEnrolled=course.studentsEnrolled.length;
+            const totalAmountGenerated=totalStudentsEnrolled*course.price;
+            //create a new object with additional fields
+            const courseWithStats={
+                _id:course._id,
+                courseName:course.courseName,
+                courseDescription:course.courseDescription,
+                totalStudentsEnrolled,
+                totalAmountGenerated
+            }
+            return courseWithStats;
+        })
+        res.status(200).json({courses:courseData});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"Internal Server Error"})
+    }
+}
