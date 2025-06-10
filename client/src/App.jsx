@@ -11,10 +11,14 @@ import Dashboard from './pages/Dashboard'
 import MyProfile from './components/core/Dashboard/MyProfile'
 import Settings from './components/core/Dashboard/Settings/index'
 import EnrolledCourses from './components/core/Dashboard/EnrolledCourses'
+import Instructor from './components/core/Dashboard/InstructorDashboard/Instructor'
 import Cart from './components/core/Dashboard/Cart/index'
 import Catalog from './pages/Catalog'
 import { useSelector } from 'react-redux'
 import {ACCOUNT_TYPE} from "./utils/constants";
+import MyCourses from './components/core/Dashboard/MyCourses/index'
+import AddCourse from './components/core/Dashboard/AddCourse'
+import EditCourse from './components/core/Dashboard/EditCourse'
 function App() {
   const {user}=useSelector((state)=>state.profile);
   
@@ -56,7 +60,7 @@ function App() {
                 </>
               )
             }
-            {/* {
+            {
               user?.accountType===ACCOUNT_TYPE.INSTRUCTOR && (
                 <>
                     <Route path="/dashboard/my-courses" element={<MyCourses/>}/>
@@ -66,7 +70,7 @@ function App() {
                   
                 </>
               )
-            } */}
+            }
         </Route>
       </Routes>
     </div>
