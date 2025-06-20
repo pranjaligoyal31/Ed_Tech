@@ -1,21 +1,26 @@
 import axios from 'axios';
 
-export const axiosInstance = axios.create({});
+export const axiosInstance = axios.create({
+  withCredentials: true,
+});
+
 
 export const apiConnector = (method, url, bodyData = null, headers = {}, params = null) => {
   console.log("Calling URL:", url);
 
   const token = localStorage.getItem("token");
-  console.log(token)
+  console.log("Token from localStorage:", token);
+
+  const finalHeaders = { ...headers };
+  if (token) {
+    finalHeaders["Authorization"] = `Bearer ${token}`;
+  }
 
   return axiosInstance({
-    method: `${method}`,
-    url: `${url}`,
+    method,
+    url,
     data: bodyData,
-    headers: {
-      ...headers,
-      Authorization: headers.Authorization ?? (token ? `Bearer ${token}` : ''),
-    },
-    params: params,
+    headers: finalHeaders,
+    params,
   });
 };
