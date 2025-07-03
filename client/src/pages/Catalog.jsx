@@ -92,7 +92,7 @@ const Catalog = () => {
       Top courses in {category.name}
     </div>
     <div className="py-8">
-      <CourseSlider Courses={category.course} />
+      <CourseSlider Courses={category.courses} />
     </div>
   </div>
 ))}

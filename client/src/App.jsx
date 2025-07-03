@@ -19,6 +19,7 @@ import {ACCOUNT_TYPE} from "./utils/constants";
 import MyCourses from './components/core/Dashboard/MyCourses/index'
 import AddCourse from './components/core/Dashboard/AddCourse'
 import EditCourse from './components/core/Dashboard/EditCourse'
+import ContactUs from './pages/ContactUs'
 function App() {
   const {user}=useSelector((state)=>state.profile);
   
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path="/category/:categoryId" element={<Catalog/>}/>
+        <Route path="/contact" element={<OpenRoute><ContactUs/></OpenRoute>}/>
         <Route
           path="login"
           element={
