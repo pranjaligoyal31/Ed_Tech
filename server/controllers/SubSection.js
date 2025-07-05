@@ -1,6 +1,7 @@
 const SubSection=require('../models/SubSection')
 const Section=require('../models/Section')
 const {uploadImageToCloudinary} = require('../utils/imageUploader')
+const {uploadVideoToCloudinary} = require('../utils/videoUploader')
 
 exports.createSubSection=async (req,res)=>{
     try {
@@ -46,6 +47,55 @@ exports.createSubSection=async (req,res)=>{
         })
     }
 }
+
+// exports.createSubSection = async (req, res) => {
+//   try {
+//     const { sectionId, title, description } = req.body
+//     const video = req.files.videoFile
+
+//     if (!sectionId || !title || !description || !video) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "All fields are required",
+//       })
+//     }
+
+//     // Upload video to Cloudinary (for video, not image!)
+//     const uploadDetails = await uploadVideoToCloudinary(video, process.env.FOLDER_NAME)
+
+//     // Create a subsection with duration
+//     const subSectionDetails = await SubSection.create({
+//       title,
+//       description,
+//       videoUrl: uploadDetails.secure_url,
+//       timeDuration: Math.floor(uploadDetails.duration).toString(), // save in seconds as string
+//     })
+
+//     // Update Section with this subsection
+//     const updatedSection = await Section.findByIdAndUpdate(
+//       { _id: sectionId },
+//       {
+//         $push: {
+//           subSection: subSectionDetails._id,
+//         },
+//       },
+//       { new: true }
+//     ).populate("subSection")
+
+//     return res.status(200).json({
+//       success: true,
+//       message: "Sub section created successfully",
+//       data: updatedSection,
+//     })
+//   } catch (error) {
+//     return res.status(500).json({
+//       success: false,
+//       message: "Internal Server Error",
+//       error: error.message,
+//     })
+//   }
+// }
+
 //make updateSubSection
 exports.updateSubSection = async (req, res) => {
     try {
