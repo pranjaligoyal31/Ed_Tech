@@ -113,7 +113,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/paridhijain">
+      <a href="https://github.com/paridhijain07">
         <img src="https://avatars.githubusercontent.com/u/109040378?v=" width="100px;" alt="Paridhi Jain"/>
         <br />
         <sub><b>Paridhi Jain</b></sub>
