@@ -41,7 +41,7 @@ const {
 
 const {
   updateCourseProgress
-} = require("../controllers/courseProgress");
+} = require("../controllers/CourseProgress");
 
 
 //importing middlewares
