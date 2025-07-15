@@ -1,4 +1,4 @@
-# 📘 StudyNotion
+# 📘 StudyPlus
 
 <p align="center">
   <b>A Full-Stack EdTech Platform built with the MERN Stack</b><br/>
@@ -15,17 +15,19 @@
 
 ## 🌐 Live Demo
 
-🔗 [View Live Project]()
+🔗 [View Live Project](https://ed-tech-dusky-delta.vercel.app)
+🔗 [Backend Link](https://ed-tech-tg26.onrender.com)
+
 
 ---
 
-## 📖 About StudyNotion
+## 📖 About StudyPlus
 
-**StudyNotion** is a feature-rich EdTech platform that empowers students to browse, purchase, and learn from interactive video-based courses, while enabling instructors to create, manage, and monetize their educational content. Built with the **MERN Stack**, it delivers a robust and scalable learning experience.
+**StudyPlus** is a feature-rich EdTech platform that empowers students to browse, purchase, and learn from interactive video-based courses, while enabling instructors to create, manage, and monetize their educational content. Built with the **MERN Stack**, it delivers a robust and scalable learning experience.
 
 ---
 
-## ✨ What Makes StudyNotion Special?
+## ✨ What Makes StudyPlus Special?
 
 ### 🎓 For Students - Your Learning Journey
 - 📧 **Secure Registration** with OTP-based authentication
@@ -70,7 +72,7 @@
 ## 🏗️ System Architecture
 
 ```txt
-📦 StudyNotion Platform
+📦 StudyPlus Platform
 ├── 🎨 Frontend (React)
 │   ├── 🏠 Student Experience
 │   │   ├── Home & Course Catalog
