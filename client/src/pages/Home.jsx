@@ -10,6 +10,7 @@ import LearningLanguageSection from '../components/core/HomePage/LearningLanguag
 import InstructorSection from '../components/core/HomePage/InstructorSection'
 import ExploreMore from '../components/core/HomePage/ExploreMore'
 import Footer from '../components/common/Footer';
+import ReviewSlider from '../components/common/ReviewSlider';
 
 const Home = () => {
   return (
@@ -149,12 +150,12 @@ const Home = () => {
   <div className='flex flex-row gap-5 mb-10 mt-[95px]'>
     <div className='text-4xl font-semibold w-[45%]'>
         Get the Skills you need for 
-        <HighlightText text={"Job that is in demand"}/>
+        <HighlightText text={" Job that is in demand"}/>
     </div>
 
     <div className='flex flex-col gap-10 w-[40%]'>
         <div className='text-[16px]'>
-            The modern StudyNotion is the dictates its own terms. Today, to be a competitive
+            The modern StudyPlus is the dictates its own terms. Today, to be a competitive
             specialist requires more than professional skills.
         </div>
         <CTAButton active={true} linkto={"/signup"}>
@@ -181,6 +182,7 @@ const Home = () => {
 
         <h2 className='text-center text-4xl font-semibold mt-10'>review from other learners</h2>
         {/* Review slider here */}
+        <ReviewSlider />
        </div>
       {/* Footer */}
       <Footer />

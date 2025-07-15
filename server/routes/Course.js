@@ -73,7 +73,7 @@ router.post("/deleteCourse",auth,isInstructor,deleteCourse);
 //Instructor Courses
 router.get("/getInstructorCourses",auth,isInstructor,getInstructorCourses);
 //Get All courses Details
-router.get("/getFullCourseDetails",auth,getFullCourseDetails);
+router.post("/getFullCourseDetails",auth,getFullCourseDetails);
 router.get("/getAllCourses", getAllCourses)
 router.post("/getCourseDetails", getCourseDetails)
 

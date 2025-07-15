@@ -3,43 +3,81 @@ require("dotenv").config();
 const User = require("../models/User");
 
 //auth
-exports.auth = async (req, res, next) => {
-    try {
-        //extract token
-        const token = req.cookies.token
-                        || req.body.token
-                        || req.header("Authorization")?.replace("Bearer ", "").trim();
+// exports.auth = async (req, res, next) => {
+//     try {
+//         //extract token
+//         const token = req.cookies.token
+//                         || req.body.token
+//                         || req.header("Authorization")?.replace("Bearer ", "").trim();
 
-        //if token missing,then return response
-        if(!token) {
-            return res.status(401).json({
-                success:false,
-                message:'Token is missing',
-            });
-        }
+//         //if token missing,then return response
+//         if(!token) {
+//             return res.status(401).json({
+//                 success:false,
+//                 message:'Token is missing',
+//             });
+//         }
 
-        //verify the token
-        try {
-            const decode =  jwt.verify(token, process.env.JWT_SECRET);
-            console.log(decode);
-                req.user = decode;
-        } catch (error) {
-            //verification - issue
-            return res.status(401).json({
-                success:false,
-                message:'token is invalid',
-            });
+//         //verify the token
+//         try {
+//             const decode =  jwt.verify(token, process.env.JWT_SECRET);
+//             console.log(decode);
+//                 req.user = decode;
+//         } catch (error) {
+//             //verification - issue
+//             return res.status(401).json({
+//                 success:false,
+//                 message:'token is invalid',
+//             });
             
-        }
-        next();//->going on next middleware
-    } 
-    catch (error) {
-        return res.status(401).json({
-            success:false,
-            message:'Something went wrong while validating the token',
-        });
+//         }
+//         next();//->going on next middleware
+//     } 
+//     catch (error) {
+//         return res.status(401).json({
+//             success:false,
+//             message:'Something went wrong while validating the token',
+//         });
+//     }
+// }
+exports.auth = async (req, res, next) => {
+  try {
+    const rawAuthHeader = req.header("Authorization");
+    console.log("raw Authorization header:", rawAuthHeader);
+
+    const token = req.cookies.token
+      || req.body.token
+      || rawAuthHeader?.replace("Bearer ", "").trim();
+
+    console.log("Extracted token:", token);
+
+    if (!token) {
+      return res.status(401).json({
+        success: false,
+        message: 'Token is missing',
+      });
     }
-}
+
+    try {
+      const decode = jwt.verify(token, process.env.JWT_SECRET);
+      console.log("Decoded token:", decode);
+      req.user = decode;
+    } catch (error) {
+      return res.status(401).json({
+        success: false,
+        message: 'Token is invalid',
+      });
+    }
+
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      success: false,
+      message: 'Something went wrong while validating the token',
+    });
+  }
+};
+
 
 //isStudent
 exports.isStudent= async (req, res, next) => {

@@ -1,6 +1,6 @@
 import React from "react"
 
-import FoundingStory from "../assets/Images/FoundingStory.png"
+// import FoundingStory from '../assets/Images/'
 import BannerImage1 from "../assets/Images/aboutus1.webp"
 import BannerImage2 from "../assets/Images/aboutus2.webp"
 import BannerImage3 from "../assets/Images/aboutus3.webp"
@@ -17,10 +17,6 @@ import ReviewSlider from './../components/common/ReviewSlider';
 import { motion } from 'framer-motion';
 import { fadeIn } from "../components/common/motionFrameVarients"
 
-
-
-
-
 const About = () => {
   return (
     <div>
@@ -35,7 +31,7 @@ const About = () => {
               whileInView={'show'}
               viewport={{ once: false, amount: 0.1 }}
             > Driving Innovation in Online Education for a
-              <HighlightText text={"Brighter Future"} />
+              <HighlightText text={" Brighter Future"} />
             </motion.p>
 
             <motion.p
@@ -44,7 +40,7 @@ const About = () => {
               whileInView={'show'}
               viewport={{ once: false, amount: 0.1 }}
               className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
-              Studynotion is at the forefront of driving innovation in online
+              StudyPlus is at the forefront of driving innovation in online
               education. We're passionate about creating a brighter future by
               offering cutting-edge courses, leveraging emerging technologies,
               and nurturing a vibrant learning community.
@@ -104,11 +100,11 @@ const About = () => {
              whileInView={'show'}
              viewport={{ once: false, amount: 0.1 }}
             >
-              <Img
+              {/* <Img
                 src={FoundingStory}
                 alt="FoundingStory"
                 className="shadow-[0_0_20px_0] shadow-[#FC6767]"
-              />
+              /> */}
             </motion.div>
           </div>
 
@@ -146,7 +142,7 @@ const About = () => {
         <ContactFormSection />
       </section>
 
-      {/* Reviws from Other Learner */}
+      {/* Reviews from Other Learner */}
       <div className=" my-20 px-5 text-white ">
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other learners

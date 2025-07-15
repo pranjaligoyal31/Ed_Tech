@@ -21,7 +21,11 @@ import AddCourse from "./components/core/Dashboard/AddCourse";
 import EditCourse from "./components/core/Dashboard/EditCourse";
 import ContactUs from "./pages/ContactUs";
 import DummyPayment from "./pages/Payments";
-import CourseDetails from "./components/core/Course/CourseDetails";
+import CourseDetails from "./pages/CourseDetails";
+import About from "./pages/About";
+
+import ViewCourse from "./pages/ViewCourse";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 
 function App() {
   const { user } = useSelector((state) => state.profile);
@@ -34,6 +38,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryId" element={<Catalog />} />
         <Route path="/courses/:courseId" element={<CourseDetails />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/contact"
           element={
@@ -66,6 +71,18 @@ function App() {
             </OpenRoute>
           }
         />
+
+        {/* ✅ View Course Route */}
+        <Route
+          path="/view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          <Route path="" element={<VideoDetails />} />
+        </Route>
 
         {/* Dashboard Routes */}
         <Route

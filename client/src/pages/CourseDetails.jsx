@@ -84,10 +84,13 @@ function CourseDetails() {
   const [totalNoOfLectures, setTotalNoOfLectures] = useState(0)
   useEffect(() => {
     let lectures = 0
-    response?.data?.courseDetails?.courseContent?.forEach((sec) => {
-      lectures += sec.subSection.length || 0
-    })
-    setTotalNoOfLectures(lectures)
+  response?.data?.courseDetails?.courseContent?.forEach((sec) => {
+    if (Array.isArray(sec?.subSection)) {
+      lectures += sec.subSection.length
+    }
+  })
+  setTotalNoOfLectures(lectures)
+  console.log("Course content structure: ", response?.data?.courseDetails?.courseContent)
   }, [response])
 
   // Scroll to the top of the page when the component mounts
@@ -139,7 +142,7 @@ function CourseDetails() {
   // Buy Course handler
   const handleBuyCourse = () => {
     if (token) {
-      const coursesId = [courseId]
+      const coursesId = [course_id]
       buyCourse(token, coursesId, user, navigate, dispatch)
       return
     }
@@ -202,7 +205,11 @@ function CourseDetails() {
               <p className="text-4xl font-bold text-richblack-5 sm:text-[42px]">{courseName}</p>
               <p className='text-richblack-200'>{courseDescription}</p>
               <div className="text-md flex flex-wrap items-center gap-2">
-                <span className="text-yellow-25">{avgReviewCount}</span>
+                {/* <span className="text-yellow-25">{avgReviewCount}</span> */}
+                <span className="text-yellow-25">
+  {!isNaN(avgReviewCount) ? avgReviewCount.toFixed(1) : "0.0"}
+</span>
+
                 <RatingStars Review_Count={avgReviewCount} Star_Size={24} />
                 <span>{`(${ratingAndReviews.length} reviews)`}</span>
                 <span>{`${studentsEnrolled.length} students enrolled`}</span>
@@ -273,14 +280,16 @@ function CourseDetails() {
               <p className="text-[28px] font-semibold">Course Content</p>
               <div className="flex flex-wrap justify-between gap-2">
                 <div className="flex gap-2">
-                  <span>
-                    {courseContent.length} {`section(s)`}
-                  </span>
-                  <span>
-                    {totalNoOfLectures} {`lecture(s)`}
-                  </span>
-                  <span>{response.data?.totalDuration} Total Time</span>
-                </div>
+  <span>
+    {courseContent.length} {`section(s)`}
+  </span>
+  <span>
+    {totalNoOfLectures} {`lecture(s)`}
+  </span>
+  <span>{response.data?.totalDuration || "00:00"} Total Time</span>
+
+</div>
+
                 <button
                   className="text-yellow-25"
                   onClick={() => setIsActive([])}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import logo from "../../assets/Logo/Logo-Full-Light.png";
 import { NavbarLinks } from "../../data/navbar-links";
+import new_logo from '../../assets/StudyPlus Logo.png'
 import { useSelector } from "react-redux";
 import { CiShoppingCart } from "react-icons/ci";
 import ProfileDropDown from "../core/Auth/ProfileDropDown";
@@ -40,7 +41,7 @@ const Navbar = () => {
     <div className="flex h-14 justify-center items-center border-b-[1px] border-b-richblack-700">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link to="/">
-          <img src={logo} width={160} height={42} alt="logo" />
+          <img src={new_logo} width={160} height={42} alt="logo" />
         </Link>
 
         <nav>

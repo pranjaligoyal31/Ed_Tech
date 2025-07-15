@@ -167,6 +167,7 @@
 const Course = require("../models/Course");
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
+const mongoose = require("mongoose");
 const { courseEnrollmentEmail } = require("../mail/courseEnrollmentEmail");
 
 exports.studentEnroll = async (req, res) => {
@@ -191,15 +192,13 @@ exports.studentEnroll = async (req, res) => {
       });
     }
 
-    // Add user to course
     await Course.findByIdAndUpdate(courseId, {
-      $push: { studentsEnrolled: userId },
-    });
+  $push: { studentsEnrolled: new mongoose.Types.ObjectId(userId) },
+});
 
-    // Add course to user
-    await User.findByIdAndUpdate(userId, {
-      $push: { courses: courseId },
-    });
+await User.findByIdAndUpdate(userId, {
+  $push: { courses: new mongoose.Types.ObjectId(courseId) },
+});
 
     // Send confirmation email (optional)
     const user = await User.findById(userId);
