@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/common/Footer'
 import { useParams } from 'react-router-dom'
-import { getCatalogPageData } from '../services/operations/pageandComponentsData'
+import { getCatalogPageData } from '../services/operations/pageAndComponentsData'
 import Course_Card from '../components/core/Catalog/Course_Card'
 import CourseSlider from '../components/core/Catalog/CourseSlider'
 import { useSelector } from "react-redux"
