@@ -115,19 +115,19 @@
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/paridhijain07">
-        <img src="https://avatars.githubusercontent.com/u/109040378?v=" width="100px;" alt="Paridhi Jain"/>
+      <a href="https://github.com/pranjaligoyal31">
+        <img src="https://avatars.githubusercontent.com/u/109040378?v=" width="100px;" alt="Pranjali Goyal"/>
         <br />
-        <sub><b>Paridhi Jain</b></sub>
+        <sub><b>Pranjali Goyal</b></sub>
       </a>
       <br />
       💻 Full Stack Developer
     </td>
     <td align="center">
-      <a href="https://github.com/pranjaligoyal31">
-        <img src="https://avatars.githubusercontent.com/u/109040378?v=" width="100px;" alt="Pranjali Goyal"/>
+      <a href="https://github.com/paridhijain07">
+        <img src="https://avatars.githubusercontent.com/u/109040378?v=" width="100px;" alt="Paridhi Jain"/>
         <br />
-        <sub><b>Pranjali Goyal</b></sub>
+        <sub><b>Paridhi Jain</b></sub>
       </a>
       <br />
       💻 Full Stack Developer
