@@ -5,6 +5,8 @@ const User=require('../models/User')
 const {uploadImageToCloudinary}=require('../utils/imageUploader')
 const CourseProgress=require('../models/CourseProgress')
 const {convertSecondsToDuration}=require('../utils/secToDuration')
+const { convertTimeStringToSeconds } = require('../utils/timeConversion'); // <-- import this
+
 
 //createCourse handler function
 exports.createCourse = async (req, res) => {
@@ -167,13 +169,13 @@ exports.getCourseDetails = async (req, res) => {
             });
         }
 
-        let totalDurationInSeconds = 0
-    courseDetails.courseContent.forEach((content) => {
-      content.subSection.forEach((subSection) => {
-        const timeDurationInSeconds = parseInt(subSection.timeDuration)
-        totalDurationInSeconds += timeDurationInSeconds
-      })
-    })
+        let totalDurationInSeconds = 0;
+courseDetails.courseContent.forEach((content) => {
+  content.subSection.forEach((subSection) => {
+    const timeDurationInSeconds = convertTimeStringToSeconds(subSection.timeDuration);
+    totalDurationInSeconds += timeDurationInSeconds;
+  });
+});
     const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
         //return response
         return res.status(200).json({
@@ -198,7 +200,7 @@ exports.getCourseDetails = async (req, res) => {
 exports.getFullCourseDetails = async (req, res) => {
   try {
   
-    const {courseId}=req.query;
+    const courseId = req.body.courseId;
     console.log("COURSE ID ON BACKEND:\n",courseId);
     const userId = req.user.id
     console.log("user id", req.user.id)
@@ -242,13 +244,13 @@ exports.getFullCourseDetails = async (req, res) => {
     //   });
     // }
 
-    let totalDurationInSeconds = 0
-    courseDetails.courseContent.forEach((content) => {
-      content.subSection.forEach((subSection) => {
-        const timeDurationInSeconds = parseInt(subSection.timeDuration)
-        totalDurationInSeconds += timeDurationInSeconds
-      })
-    })
+    let totalDurationInSeconds = 0;
+courseDetails.courseContent.forEach((content) => {
+  content.subSection.forEach((subSection) => {
+    const timeDurationInSeconds = convertTimeStringToSeconds(subSection.timeDuration);
+    totalDurationInSeconds += timeDurationInSeconds;
+  });
+});
 
     const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
 

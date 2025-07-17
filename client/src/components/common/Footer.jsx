@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FooterLink2 } from '../../data/footer-links';
 import StudyNotionLogo from '../../assets/Logo/Logo-Full-Light.png';
+import new_logo from '../../assets/StudyPlus Logo.png'
 
 const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
 const Resources = [
@@ -20,7 +21,7 @@ const Footer = () => {
           {/* Section 1 */}
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
             <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
-              <img src={StudyNotionLogo} alt="StudyNotion Logo" className="object-contain" />
+              <img src={new_logo} alt="StudyNotion Logo" className="object-contain" />
               <h1 className="text-richblack-50 font-semibold text-[16px]">Company</h1>
               <div className="flex flex-col gap-2">
                 {["About", "Careers", "Affiliates"].map((ele, i) => (
